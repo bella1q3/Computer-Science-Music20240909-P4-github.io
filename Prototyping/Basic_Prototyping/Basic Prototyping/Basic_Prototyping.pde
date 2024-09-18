@@ -31,10 +31,10 @@ void setup()
   String file = directory + TOOLFortySix2 + mp3FileName;
   println (file);
   //
-  //song[currentSong] = minim.loadFile( "../../Music/RammsteinEngel.mp3" );
+  song[currentSong] = minim.loadFile( "../../Music/RammsteinEngel.mp3" );
   //
   //song[currentSong+=1] = minim.loadFile( "../../Music/TOOLParabola.mp3" );
-  //song[1].play();
+  song[1].play();
   //song[currentSong+=1] = minim.loadFile( "../../Music/TOOLFortySix2.mp3);
   
   
@@ -46,7 +46,7 @@ void setup()
   //Introduce mousePressed as interaction
   //
   //Future Problem Fixed
-  //beatYourCompetition.play();
+  //RammsteinEngel.play();
   //
   //DIVs
   //rect() based on variables; variables change with program (introduces parameters of a function and TABS)
