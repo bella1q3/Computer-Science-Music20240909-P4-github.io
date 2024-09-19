@@ -21,22 +21,23 @@ void setup()
   String musicPathway = "Music/";
   String mp3FileName = ".mp3";
   //Alphebetical order, same as OS ordering files
-  String RammsteinEngel = "RammsteinEngel";
-  String TOOLParabola = "TOOLParabola";
-  String TOOLFortySix2 = "TOOLFortySix2";
+  String Engel = "Engel";
+  String Parabola = "Parabola";
+  String FortySix2 = "FortySix2";
   //
   //Add Reading into Array
-  String directory = "../../" + musicPathway;
+  String directory = "../../../" + musicPathway;
   println ( currentSong, directory );
-  String file = directory + TOOLFortySix2 + mp3FileName;
+  String file = directory + Engel + mp3FileName;
   println (file);
   //
-  song[currentSong] = minim.loadFile( "../../Music/RammsteinEngel.mp3" );
+  song[currentSong] = minim.loadFile( "../../../Music/Engel.mp3" );
   //
-  //song[currentSong+=1] = minim.loadFile( "../../Music/TOOLParabola.mp3" );
+  //song[currentSong+=1] = minim.loadFile( "../../../Music/Parabola.mp3" );
   song[1].play();
-  //song[currentSong+=1] = minim.loadFile( "../../Music/TOOLFortySix2.mp3);
-  
+  //song[currentSong+=1] = minim.loadFile( "../../../Music/FortySix2.mp3);
+  //song[currentSong+=1] = minim.loadFile( "../../../Music/Engel.mp3)
+  song[currentSong].play();
   
   //Add currentSong as hardcoded link
   //Use play(timeStart) & loop(numberOfLoops)
@@ -46,7 +47,7 @@ void setup()
   //Introduce mousePressed as interaction
   //
   //Future Problem Fixed
-  //RammsteinEngel.play();
+  //Engel.play();
   //
   //DIVs
   //rect() based on variables; variables change with program (introduces parameters of a function and TABS)
