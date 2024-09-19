@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 //
 //Global Variables
 Minim minim;
-int numberOfSongs = 3; //Able to Autodetect based on Pathway
+int numberOfSongs = 8; //Able to Autodetect based on Pathway
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 int currentSong = numberOfSongs - numberOfSongs;  //beginning current song as ZERO
 //
@@ -21,37 +21,44 @@ void setup()
   String musicPathway = "Music/";
   String mp3FileName = ".mp3";
   //Alphebetical order, same as OS ordering files
-  String Engel = "Engel";
-  String Parabola = "Parabola";
-  String FortySix2 = "FortySix2";
+  String beatYourCompetition = "Beat_Your_Competition";
+  String cycles = "Cycles";
+  String eureka = "Eureka";
+  String ghostWalk = "Ghost_Walk";
+  String groove = "groove";
+  String newsroom = "Newsroom";
+  String startYourEngines = "Start_Your_Engines";
+  String theSimplest = "The_Simplest";
   //
   //Add Reading into Array
   String directory = "../../../" + musicPathway;
-  println ( currentSong, directory );
-  String file = directory + Engel + mp3FileName;
-  println (file);
+  String file = directory + groove + mp3FileName;
+  song[currentSong] = minim.loadFile( file );
+  file = directory + startYourEngines + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
+  file = directory + beatYourCompetition + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
+  file = directory + cycles + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
+  file = directory + eureka + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
+  file = directory + ghostWalk + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
+  file = directory + newsroom + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
+  file = directory + theSimplest + mp3FileName;
+  song[currentSong+=1] = minim.loadFile( file );
   //
-  song[currentSong] = minim.loadFile( "../../../Music/Engel.mp3" );
+  currentSong = 0;
   //
-  //song[currentSong+=1] = minim.loadFile( "../../../Music/Parabola.mp3" );
-  song[1].play();
-  //song[currentSong+=1] = minim.loadFile( "../../../Music/FortySix2.mp3);
-  //song[currentSong+=1] = minim.loadFile( "../../../Music/Engel.mp3)
   song[currentSong].play();
-  
-  //Add currentSong as hardcoded link
   //Use play(timeStart) & loop(numberOfLoops)
-  //Inspect with println
   //Purpose is 2D Shapes
   //Introduce keyPressed as keyboard shortcuts
   //Introduce mousePressed as interaction
   //
-  //Future Problem Fixed
-  //Engel.play();
-  //
   //DIVs
   //rect() based on variables; variables change with program (introduces parameters of a function and TABS)
-  
 } //End setup
 //
 void draw() {
