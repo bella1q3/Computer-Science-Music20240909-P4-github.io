@@ -122,7 +122,7 @@ void draw() {
   //if ( day ) {} else if ( dark ) {} else {}
   //
   //Hoverover IF - Used in all other buttons too
-  if ( mouseX>musicButtonSquareX && mouseX<musicButtonSquareX+musicButtonSquareWidth && mouseY>musicButtonSquareY && mouseY<musicButtonSquareY+musicButtonSquareHeight ) {
+ if ( mouseX>musicButtonSquareX && mouseX<musicButtonSquareX+musicButtonSquareWidth && mouseY>musicButtonSquareY && mouseY<musicButtonSquareY+musicButtonSquareHeight ) {
     stopButtonHoverOver = yellow;
   } else {
     stopButtonHoverOver = purple;
@@ -146,7 +146,7 @@ void mousePressed() {
   /* STOP Button Mouse Press, after Hoverover
    Must have Hoverover to ensure mouse will activate, visual confirmation of algorithm
    */
-  /* if ( mouseX>musicButtonSquareX && mouseX<musicButtonSquareX+musicButtonSquareWidth && mouseY>musicButtonSquareY && mouseY<musicButtonSquareY+musicButtonSquareHeight ) {
+   /*if ( mouseX>musicButtonSquareX && mouseX<musicButtonSquareX+musicButtonSquareWidth && mouseY>musicButtonSquareY && mouseY<musicButtonSquareY+musicButtonSquareHeight ) {
    if ( song[currentSong].isPlaying() ) {
    song[currentSong].pause(); //single tap
    } else {
@@ -171,14 +171,13 @@ void keyPressed() {
    */
   if ( key=='S' || key=='s' ) song[currentSong].pause(); //Simple Stop, no double taps
   //
-  /* if ( key=='S' | key=='s' ) {
+  if ( key=='S' | key=='s' ) {
    if ( song[currentSong].isPlaying() ) {
-   song[currentSong].pause(); //single tap
+     song[currentSong].pause(); //single tap
    } else {
-   song[currentSong].rewind(); //double tap
+     song[currentSong].rewind(); //double tap
    }
-   }
-   */
+  }
 } //End keyPressed
 //
 // End Main Program
