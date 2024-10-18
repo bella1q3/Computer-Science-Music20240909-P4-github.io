@@ -16,14 +16,15 @@ int appWidth, appHeight;
 float musicButtonDIV_X, musicButtonDIV_Y, musicButtonDIV_Width, musicButtonDIV_Height;
 float musicButtonSquareX, musicButtonSquareY, musicButtonSquareWidth, musicButtonSquareHeight;
 float stopX, stopY, stopWidth, stopHeight;
-float playButton1X, playButton1Y, playButton2X, playButton2Y, playButton3X, playButton3Y;
+float quitThicknessLine, quitButtonX1, quitButtonY1, quitButtonX2, quitButtonY2;
+float quitButtonX3, quitButtonY3, quitButtonX4, quitButtonY4;
 //
 color purple=#371467, yellow=#E0D839, blue=#2A38CE, white=#FFFFFF, black=#000000, green=#387C11;
 color dayForeground=purple, dayHoverover=blue, dayBackground=white;
 color darkForeground=purple, darkHoverover=yellow, darkBackground=black;
 color nightForeground=green, nightHoverover=yellow, nightBackground=black;
 color appColorForeground, appColorHoverover, appColorBackground;
-color stopButtonHoverOver;
+color stopButtonHoverOver, quitButtonLineColour;
 //
 Boolean colorDarkMode=true; //Preference: true or false //Future: Build Button for Dark Mode Preference
 //
@@ -63,13 +64,15 @@ void setup()
   stopHeight = musicButtonSquareHeight*1/2;
   stopX = musicButtonSquareX + musicButtonSquareWidth*1/4;
   stopY = musicButtonSquareY + musicButtonSquareHeight*1/4;
-  playButton1X = musicButtonSquareX + musicButtonSquareWidth*1/4;
-  playButton1Y  = musicButtonSquareY + musicButtonSquareHeight*1/4;
-  playButton2X = musicButtonSquareX + musicButtonSquareWidth*3/4;
-  playButton2Y = musicButtonSquareY + musicButtonSquareHeight*1/2;
-  playButton3X = musicButtonSquareX + musicButtonSquareWidth*1/4;
-  playButton3Y = musicButtonSquareY + musicButtonSquareHeight*3/4;
-  //playButton1X, playButton1Y, playButton2X, playButton2Y, playButton3X, playButton3Y
+  quitThicknessLine = ( musicButtonSquareWidth / musicButtonSquareWidth ) + musicButtonSquareWidth*1/4*1/2;
+  quitButtonX1 = stopX;
+  quitButtonY1 = stopY;
+  quitButtonX2 = stopX+stopWidth;
+  quitButtonY2 = stopY+stopHeight;
+  quitButtonX3 = quitButtonX2;
+  quitButtonY3 = quitButtonY1; 
+  quitButtonX4 = quitButtonX1;
+  quitButtonY4 = quitButtonY2;
   //
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder
   //
@@ -107,7 +110,7 @@ void setup()
   //
   currentSong = 0;
   //
-  //song[currentSong].play();
+  song[currentSong].play();
   //Use play(timeStart) & loop(numberOfLoops)
   //Purpose is 2D Shapes
   //Introduce keyPressed as keyboard shortcuts
@@ -160,15 +163,28 @@ void draw() {
   //Hoverover IF - Used in all other buttons too
   if ( mouseX>musicButtonSquareX && mouseX<musicButtonSquareX+musicButtonSquareWidth && mouseY>musicButtonSquareY && mouseY<musicButtonSquareY+musicButtonSquareHeight ) {
     stopButtonHoverOver = appColorHoverover; // See SetUp: Single Line IFs for Day, Dark, and Night Booleans
+    quitButtonLineColour = appColorHoverover;
   } else {
     stopButtonHoverOver = appColorForeground; // See SetUp: Single Line IFs for Day, Dark, and Night Booleans
+    quitButtonLineColour = appColorForeground;
   }
   fill(stopButtonHoverOver);
-  noStroke(); //Colour
+  //stroke(); //Colour
   //
-  triangle(playButton1X, playButton1Y, playButton2X, playButton2Y, playButton3X, playButton3Y);
+  fill(stopButtonHoverOver);
+  noStroke(); //Colour
+  //rect( stopX, stopY, stopWidth, stopHeight ); //(X, Y, width, height, roundedEdge1, roundedEdge2, roundedEdge3, roundedEdge4, )
   fill(255); //noFill(); //White in Gray Scale
   stroke(1); //Reset default
+  //
+  //
+  stroke(quitButtonLineColour);
+  strokeWeight(quitThicknessLine);
+  line( quitButtonX1, quitButtonY1, quitButtonX2, quitButtonY2 );
+  line( quitButtonX3, quitButtonY3, quitButtonX4, quitButtonY4 );
+  fill(255); //noFill(); //White in Gray Scale
+  stroke(1); //Reset default
+  //noStroke(1); //Reset default
   //
   //Music Buttons Interactions: cascading IFs can become AND Statements
   //Note: keypressed must have click on screen
@@ -183,7 +199,11 @@ void mousePressed() {
    Must have Hoverover to ensure mouse will activate, visual confirmation of algorithm
    */
   if ( mouseX>musicButtonSquareX && mouseX<musicButtonSquareX+musicButtonSquareWidth && mouseY>musicButtonSquareY && mouseY<musicButtonSquareY+musicButtonSquareHeight ) {
-    song[currentSong].loop(0); //Simple Play, double tap possible
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause(); //single tap
+    } else {
+      song[currentSong].rewind(); //double tap
+    }
   }
   //
 } //End mousePressed
