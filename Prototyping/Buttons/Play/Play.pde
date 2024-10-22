@@ -209,6 +209,31 @@ void keyPressed() {
       song[currentSong].rewind(); //double tap
     }
   }
+  if ( key=='L' || key=='l' ) song[currentSong].loop(1); // Loop ONCE: Plays, then plays again, then stops & rewinds
+  if ( key=='K' || key=='k' ) song[currentSong].loop(-1); // Loop Infinitely //Parameter: Blank or -1
+  if ( key=='F' || key=='f' ) song[currentSong].skip( 10000 ); // Fast Forward, Rewind, & Play Again //Parameter: millisecond
+  if ( key=='R' || key=='r' ) song[currentSong].skip( -1000 ); // Fast Reverse & Play //Parameter: negative numbers
+  if ( key=='M' || key=='m' ) { // Mute
+     //
+     if ( song[currentSong].isMuted() ) {
+       song[currentSong].unmute();
+     } else {
+       song[currentSong].mute();
+     }
+  }
+  if ( key=='O' || key=='o' ) ; // Pause
+     //
+     if ( song[currentSong].isPlaying() ) {
+       song[currentSong].pause();
+     } else {
+       song[currentSong].play();
+     }
+  }
+  //if ( key==CODED || keyCode=='ESC' ) ; // Quit
+  //if ( key=='' || key=='' ) ; // Next 
+  //if ( key=='' || key=='' ) ; // Previous
+  //if ( key=='' || key=='' ) ; // Shuffle - PLAY (Random)
+  //if ( key=='' || key=='' ) ; // Play-Pause-Stop
 } //End keyPressed
 //
 // End Main Program
