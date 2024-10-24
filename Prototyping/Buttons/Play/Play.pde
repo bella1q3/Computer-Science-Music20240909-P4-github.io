@@ -232,8 +232,6 @@ void keyPressed() {
   if ( key==CODED || keyCode==ESC ) exit(); // QUIT //UP
   if ( key=='Q' || key=='q' ) exit(); // QUIT
   //
-  //if ( key==CODED || keyCode=='ESC' ) ; // Quit
-  //if ( key=='' || key=='' ) ; // Next 
   //if ( key=='' || key=='' ) ; // Previous
   //if ( key=='' || key=='' ) ; // Shuffle - PLAY (Random)
   //if ( key=='' || key=='' ) ; // Play-Pause-Stop
