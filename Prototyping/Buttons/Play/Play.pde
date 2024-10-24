@@ -132,7 +132,7 @@ void setup()
     appColorBackground = dayBackground;
     println("here2");
   } else {
-    //Dark Mode 
+    //Dark Mode
     appColorForeground = darkForeground;
     appColorHoverover = darkHoverover;
     appColorBackground = darkBackground;
@@ -147,7 +147,7 @@ void draw() {
   //fill() is default
   rect( musicButtonSquareX, musicButtonSquareY, musicButtonSquareWidth, musicButtonSquareHeight );
   //
-  /* 
+  /*
    - Day, Foreground: #371467 | Hoverover:  #2A38CE | Background: #FFFFFF
    - Dark, Foreground: #371467 | Hoverover: #E0D839 | Background: #000000
    - Night, no blue, Foreground: #387C11; | Hoverover: #E0D839 | Background: #000000
@@ -214,27 +214,53 @@ void keyPressed() {
   if ( key=='F' || key=='f' ) song[currentSong].skip( 10000 ); // Fast Forward, Rewind, & Play Again //Parameter: millisecond
   if ( key=='R' || key=='r' ) song[currentSong].skip( -1000 ); // Fast Reverse & Play //Parameter: negative numbers
   if ( key=='M' || key=='m' ) { // Mute
-     //
-     if ( song[currentSong].isMuted() ) {
-       song[currentSong].unmute();
-     } else {
-       song[currentSong].mute();
-     }
+    //
+    if ( song[currentSong].isMuted() ) {
+      song[currentSong].unmute();
+    } else {
+      song[currentSong].mute();
+    }
   }
   if ( key=='O' || key=='o' ) ; // Pause
-     //
-     if ( song[currentSong].isPlaying() ) {
-       song[currentSong].pause();
-     } else {
-       song[currentSong].play();
-     }
+  //
+  if ( song[currentSong].isPlaying() ) {
+    song[currentSong].pause();
+  } else {
+    song[currentSong].play();
   }
   if ( key==CODED || keyCode==ESC ) exit(); // QUIT //UP
   if ( key=='Q' || key=='q' ) exit(); // QUIT
   //
-  //if ( key=='' || key=='' ) ; // Previous
+  if ( key=='N' || key=='n' ) { // NEXT //See .txt for starter hint
+    if ( song[currentSong].isPlaying() ) {
+    song[currentSong].pause();
+    song[currentSong].rewind();
+    //
+    if ( currentSong==7 ){
+       currentSong = 0;
+    } else {
+      currentSong**;
+    }
+    println("The current song is", currentSong);
+    song[currentSong].play();
+    } else {
+      //
+      println("The current song is", currentSong);
+      song[currentSong].rewind();
+    //
+    if ( currentSong==7 ){
+       currentSong = 0;
+    } else {
+      currentSong**;
+    }
+    println("The current song is", currentSong);
+    song[currentSong].play();
+    }
+  }
+  //if ( key=='' || key=='' ) ; // Previous //Students to finish
+  //
   //if ( key=='' || key=='' ) ; // Shuffle - PLAY (Random)
-  //if ( key=='' || key=='' ) ; // Play-Pause-Stop
+  //if ( key=='' || key=='' ) ; // Play-Pause-STOP
 } //End keyPressed
 //
 // End Main Program
