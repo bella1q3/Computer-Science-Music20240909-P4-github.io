@@ -239,7 +239,7 @@ void keyPressed() {
     if ( currentSong==7 ){
        currentSong = 0;
     } else {
-      currentSong**;
+      currentSong++;
     }
     println("The current song is", currentSong);
     song[currentSong].play();
