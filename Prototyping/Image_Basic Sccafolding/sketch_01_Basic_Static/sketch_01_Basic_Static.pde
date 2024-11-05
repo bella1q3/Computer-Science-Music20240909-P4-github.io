@@ -2,7 +2,7 @@ int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 PImage picBackground;
 //
-size( 500, 100 ); //Landscape
+size( 1000, 1600 ); //Landscape
 appWidth = width;
 appHeight = height;
 //
@@ -11,7 +11,7 @@ backgroundImageX = appWidth*0;
 backgroundImageY = appHeight*0;
 backgroundImageWidth = appWidth-1;
 backgroundImageHeight = appHeight-1;
-picBackground = loadImage("../../../imagesUsed/Landscape & Square Images/Obi-wan-star-wars-jedi-23864621-800-600.jpg");
+picBackground = loadImage("../../../Images/Cat.jpg");
 //
 //DIVs
 rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
