@@ -1,6 +1,6 @@
 int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
-float monkeysfightingX, monkeysfightingY, monkeysfightingWidth, monkeysfightingHeight;
+float CatX, CatY, CatWidth, CatHeight;
 PImage picBackground, picmonkeysfighting;
 int picmonkeysfightingWidth, picmonkeysfightingHeight;
 float monkeysfightingX_Changed, monkeysfightingY_Changed;
@@ -16,12 +16,12 @@ void setup() {
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
-  picBackground = loadImage("../../../../Images/Cat.jpg");
+  picBackground = loadImage("../../../../Images/grass.jpg");
   monkeysfightingX = appWidth * 1/4;
   monkeysfightingY = appHeight * 1/4;
   monkeysfightingWidth = appWidth * 1/2;
   monkeysfightingHeight = appHeight * 1/2;
-  picmonkeysfighting = loadImage("../../../../Images/monkeysfighting.jpeg");
+  picmonkeysfighting = loadImage("../../../../Images/Cat.jpg");
   picmonkeysfightingWidthChanged = picWidth = 612;
   picmonkeysfightingHeightChanged = picmonkeysfightingHeight = 463;
   //
@@ -57,7 +57,7 @@ void draw() {
   //Draw Image One Time, for testing
   //image( picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   image( picPitbullFight, PitbullFightX, PitbullFightY, picPitbullFightWidthChanged, picPitbullFightHeightChanged  );
-  image( PicPitbullFight, PitbullFightX_Changed, 
+  image( PicgrassFight, grassX_Changed, grassY_Changed, picgrassWidthChanged, picgrassHeightChanged ); 
 }
 //
 void mousePressed() {
